@@ -44,7 +44,6 @@ include 'components/add_cart.php';
       .inner:hover img{
          transform: scale(1.1);
       }
-      
    </style>
 
 </head>
@@ -96,7 +95,7 @@ include 'components/add_cart.php';
             <div class="card-body">
                 <h1>birthday</h1>
                 <p class="card-text" style="font-size:2rem;">$99</p>
-                <a href="book.php" class="btn">book now</a>
+                <a href="book2.php" class="btn">book now</a>
             </div>
         </div>
         <div class="card" style="height: 25rem;">
@@ -106,7 +105,7 @@ include 'components/add_cart.php';
             <div class="card-body">
                <h1>private events</h1>
                 <p class="card-text" style="font-size:2rem;">$199</p>
-                <a href="book.php" class="btn">book now</a>
+                <a href="book2.php" class="btn">book now</a>
             </div>
         </div>
         <div class="card" style="height: 25rem;">
@@ -116,7 +115,7 @@ include 'components/add_cart.php';
             <div class="card-body">
                <h1>custom events</h1>
                 <p class="card-text" style="font-size:2rem;">$100</p>
-                <a href="book.php" class="btn">book now</a>
+                <a href="book2.php" class="btn">book now</a>
             </div>
         </div>
         <!-- <div class="card" style="height: 25rem;">

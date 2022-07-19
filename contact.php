@@ -44,6 +44,46 @@ if(isset($_POST['submit'])){
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>Contact Us</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.6/examples/carousel/">
+
+    
+
+    <!-- Bootstrap core CSS -->
+<link href="https://getbootstrap.com/docs/4.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+
+
+    <!-- Favicons -->
+<link rel="apple-touch-icon" href="/docs/4.6/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/docs/4.6/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/docs/4.6/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/docs/4.6/assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="/docs/4.6/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
+<link rel="icon" href="/docs/4.6/assets/img/favicons/favicon.ico">
+<meta name="msapplication-config" content="/docs/4.6/assets/img/favicons/browserconfig.xml">
+<meta name="theme-color" content="#563d7c">
+
+
+<link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+
+<!-- font awesome cdn link  -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+ <!-- bootstrap4 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+     integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+ 
+<!-- custom css file link  -->
+<link rel="stylesheet" href="css/style.css">
+
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
@@ -60,7 +100,7 @@ if(isset($_POST['submit'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>book</title>
+   <title>Contact Us</title>
 
    <!-- swiper css link  -->
    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
@@ -98,7 +138,7 @@ if(isset($_POST['submit'])){
     </div>
     <div class="col">
       <span style="font-size: 1.6rem;"> Email Address :</span>
-      <input type="email" name="email" class="form-control" required placeholder="enter your mail address" style="font-size: 1.6rem;">
+      <input type="email" name="email" class="form-control" required placeholder="enter your mail address" style="font-size: 1.6rem;text-transform: lowercase;">
     </div>
   </div>
   <div class="form-row" style="gap:2rem;">
@@ -108,7 +148,7 @@ if(isset($_POST['submit'])){
     </div>
     <div class="col">
       <span style="font-size: 1.6rem;"> Your opinion about us :</span>
-      <textarea name="msg" class="form-control" id="exampleFormControlTextarea1" rows="3" required placeholder="say something about us" style="font-size: 1.6rem;text-transform: lowercase;"></textarea>
+      <textarea name="msg" class="form-control" id="exampleFormControlTextarea1" rows="3" required placeholder="say something about us" style="font-size: 1.6rem;"></textarea>
     </div>
   </div>  
   <input type="submit" value="submit" class="btn" name="submit">
