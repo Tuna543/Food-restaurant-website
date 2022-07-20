@@ -19,7 +19,12 @@ if(isset($_POST['submit'])){
       $_SESSION['admin_id'] = $fetch_admin_id['id'];
       header('location:admin_home.php');
    }else{
-      $message[] = 'incorrect username or password!';
+      echo "
+                <script>
+                alert('Incorrect Username or Password');
+                window.location.href='admin_login.php';
+                </script>
+                ";
    }
 
 }

@@ -28,7 +28,12 @@ if(isset($_POST['update_payment'])){
     $delete_id = $_GET['order_delete'];
     $delete_order = $conn->prepare("DELETE FROM `orders` WHERE id = ?");
     $delete_order->execute([$delete_id]);
-    header('location:admin_home.php');
+    echo "
+                <script>
+                alert('order deleted successfully');
+                window.location.href='admin_home.php';
+                </script>
+         ";
  }
 
  if(isset($_POST['add_product'])){
@@ -50,17 +55,31 @@ if(isset($_POST['update_payment'])){
     $select_products->execute([$name]);
  
     if($select_products->rowCount() > 0){
-       $message[] = 'product name already exists!';
+      echo "
+                <script>
+                alert('product name already exists');
+                window.location.href='admin_home.php';
+                </script>
+         ";
     }else{
        if($image_size > 2000000){
-          $message[] = 'image size is too large';
+         echo "
+                <script>
+                alert('image size is too large');
+                window.location.href='admin_home.php';
+                </script>
+         ";
        }else{
           move_uploaded_file($image_tmp_name, $image_folder);
  
           $insert_product = $conn->prepare("INSERT INTO `products`(name, category, price, image) VALUES(?,?,?,?)");
           $insert_product->execute([$name, $category, $price, $image]);
- 
-          $message[] = 'new product added!';
+          echo "
+          <script>
+          alert('product added successfully');
+          window.location.href='admin_home.php';
+          </script>
+   ";
        }
  
     }
@@ -78,7 +97,12 @@ if(isset($_POST['update_payment'])){
     $delete_product->execute([$delete_id]);
     $delete_cart = $conn->prepare("DELETE FROM `cart` WHERE pid = ?");
     $delete_cart->execute([$delete_id]);
-    header('location:admin_home.php');
+    echo "
+                <script>
+                alert('product deleted successfully');
+                window.location.href='admin_home.php';
+                </script>
+         ";
  
  }
  
@@ -93,7 +117,13 @@ if(isset($_GET['user_delete'])){
     $delete_order->execute([$delete_id]);
     $delete_cart = $conn->prepare("DELETE FROM `cart` WHERE user_id = ?");
     $delete_cart->execute([$delete_id]);
-    header('location:admin_home.php');
+
+    echo "
+                <script>
+                alert('user deleted successfully');
+                window.location.href='admin_home.php';
+                </script>
+         ";
  }
 
 
@@ -101,13 +131,24 @@ if(isset($_GET['user_delete'])){
     $delete_id = $_GET['booking_delete'];
     $delete_bookings = $conn->prepare("DELETE FROM `book_form` WHERE id = ?");
     $delete_bookings->execute([$delete_id]);
+    echo "
+                <script>
+                alert('booking deleted successfully');
+                window.location.href='admin_home.php';
+                </script>
+         ";
  }
 //  msg deleting 
  if(isset($_GET['message_delete'])){
    $delete_id = $_GET['message_delete'];
    $delete_message = $conn->prepare("DELETE FROM `messages` WHERE id = ?");
    $delete_message->execute([$delete_id]);
-   header('location:admin_home.php');
+   echo "
+                <script>
+                alert('message deleted successfully');
+                window.location.href='admin_home.php';
+                </script>
+         ";
 }
 ?>
 

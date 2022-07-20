@@ -24,7 +24,12 @@ if(isset($_POST['update'])){
    $update_product = $conn->prepare("UPDATE `products` SET name = ?, category = ?, price = ? WHERE id = ?");
    $update_product->execute([$name, $category, $price, $pid]);
 
-   $message[] = 'product updated!';
+   echo "
+                <script>
+                alert('product updated successfully');
+                window.location.href='admin_home.php';
+                </script>
+                ";
 
    $old_image = $_POST['old_image'];
    $image = $_FILES['image']['name'];
@@ -35,13 +40,23 @@ if(isset($_POST['update'])){
 
    if(!empty($image)){
       if($image_size > 2000000){
-         $message[] = 'images size is too large!';
+         echo "
+                <script>
+                alert('Image size is too large');
+                window.location.href='update_product.php';
+                </script>
+                ";
       }else{
          $update_image = $conn->prepare("UPDATE `products` SET image = ? WHERE id = ?");
          $update_image->execute([$image, $pid]);
          move_uploaded_file($image_tmp_name, $image_folder);
          unlink('../uploaded_img/'.$old_image);
-         $message[] = 'image updated!';
+         echo "
+                <script>
+                alert('Updated Image Successfully');
+                window.location.href='admin_home.php';
+                </script>
+                ";
       }
    }
 
@@ -100,7 +115,7 @@ if(isset($_POST['update'])){
       <input type="file" name="image" class="box" accept="image/jpg, image/jpeg, image/png, image/webp">
       <div class="flex-btn">
          <input type="submit" value="update" class="btn" name="update">
-         <a href="products.php" class="option-btn">go back</a>
+         <a href="admin_home.php" class="option-btn">go back</a>
       </div>
    </form>
    <?php
