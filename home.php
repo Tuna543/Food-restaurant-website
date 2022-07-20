@@ -6,7 +6,11 @@ session_start();
 
 if(isset($_SESSION['user_id'])){
    $user_id = $_SESSION['user_id'];
-}else{
+   if((time()-$_SESSION['last_login_time'])>40){
+       header('location:components/user_logout.php');
+    }
+}
+else{
    $user_id = '';
 };
 
@@ -54,6 +58,7 @@ include 'components/add_cart.php';
 
 <!-- home section starts here  -->
 <!-- home section starts  -->
+
 
 <section class="home" id="home">
         <div class="content">
@@ -264,6 +269,19 @@ include 'components/add_cart.php';
 </div><!--  container  -->
 
 <!-- steps section ends -->
+
+
+<div class="container p-2 border text-center box-shadow">
+   <?php 
+      if($user_id!=''){
+         if (isset($_COOKIE['username'])) {
+            echo "<h1>Hello " . $_COOKIE['username'] . "! This website uses Cookies.</h4>";
+         } else {
+            echo "'Unable To set cookie.'";
+         }
+      }
+   ?>
+</div>
 
 
 <!-- footer section starts  -->

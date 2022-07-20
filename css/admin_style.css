@@ -274,6 +274,7 @@ section{
    grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
    gap:1.5rem;
    align-items: flex-start;
+   font-size: 1.5rem;
 }
 
 .dashboard .box-container .box{
@@ -287,12 +288,12 @@ section{
 }
 
 .dashboard .box-container .box h3{
-   font-size: 2.7rem;
+   font-size: 1.7rem;
    color:var(--black);
 }
 
 .dashboard .box-container .box h3 span{
-   font-size: 2rem;
+   font-size: 1.7rem;
 }
 
 .dashboard .box-container .box p{
@@ -300,7 +301,7 @@ section{
    border-radius: .5rem;
    background-color: var(--light-bg);
    border-radius: .5rem;
-   font-size: 1.8rem;
+   font-size: 1.3rem;
    border:var(--border);
    margin:1rem 0;
    color:var(--light-color);

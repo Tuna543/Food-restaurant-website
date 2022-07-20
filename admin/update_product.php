@@ -66,7 +66,6 @@ if(isset($_POST['update'])){
 </head>
 <body>
 
-<?php include '../components/admin_header.php' ?>
 
 <!-- update product section starts  -->
 
@@ -75,7 +74,7 @@ if(isset($_POST['update'])){
    <h1 class="heading">update product</h1>
 
    <?php
-      $update_id = $_GET['update'];
+      $update_id = $_GET['product_update'];
       $show_products = $conn->prepare("SELECT * FROM `products` WHERE id = ?");
       $show_products->execute([$update_id]);
       if($show_products->rowCount() > 0){

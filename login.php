@@ -29,6 +29,8 @@ if(isset($_POST['submit'])){
 
    if($select_user->rowCount() > 0){
       $_SESSION['user_id'] = $row['id'];
+      $username=$row['name'];
+      setcookie('username', $username, time()+3600);
       $_SESSION['last_login_time'] = time();
       header('location:home.php');
    }else{
@@ -47,7 +49,7 @@ if(isset($_POST['submit'])){
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
-    <title>Book</title>
+    <title>Login</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.6/examples/carousel/">
 

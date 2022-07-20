@@ -17,7 +17,7 @@ if(isset($_POST['submit'])){
    if($select_admin->rowCount() > 0){
       $fetch_admin_id = $select_admin->fetch(PDO::FETCH_ASSOC);
       $_SESSION['admin_id'] = $fetch_admin_id['id'];
-      header('location:dashboard.php');
+      header('location:admin_home.php');
    }else{
       $message[] = 'incorrect username or password!';
    }
@@ -62,8 +62,8 @@ if(isset($message)){
 
    <form action="" method="POST">
       <h3>login now</h3>
-      <input type="text" name="name" maxlength="20" required placeholder="enter your username" class="box" oninput="this.value = this.value.replace(/\s/g, '')">
-      <input type="password" name="pass" maxlength="20" required placeholder="enter your password" class="box" oninput="this.value = this.value.replace(/\s/g, '')">
+      <input type="text" name="name" maxlength="20" required placeholder="enter your username" class="box" >
+      <input type="password" name="pass" maxlength="20" required placeholder="enter your password" class="box" >
       <input type="submit" value="login now" name="submit" class="btn">
    </form>
 

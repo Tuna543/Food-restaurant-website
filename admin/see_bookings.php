@@ -10,15 +10,10 @@ if(!isset($admin_id)){
    header('location:admin_login.php');
 }
 
-if(isset($_GET['delete'])){
-   $delete_id = $_GET['delete'];
-   $delete_users = $conn->prepare("DELETE FROM `users` WHERE id = ?");
-   $delete_users->execute([$delete_id]);
-   $delete_order = $conn->prepare("DELETE FROM `orders` WHERE user_id = ?");
-   $delete_order->execute([$delete_id]);
-   $delete_cart = $conn->prepare("DELETE FROM `cart` WHERE user_id = ?");
-   $delete_cart->execute([$delete_id]);
-   header('location:users_accounts.php');
+if(isset($_GET['booking_delete'])){
+   $delete_id = $_GET['booking_delete'];
+   $delete_bookings = $conn->prepare("DELETE FROM `book_form` WHERE id = ?");
+   $delete_bookings->execute([$delete_id]);
 }
 
 ?>
@@ -66,7 +61,7 @@ if(isset($_GET['delete'])){
       <p> time : <span><?= $fetch_bookings['time']; ?></span> </p>
       <p> estimated guests : <span><?= $fetch_bookings['guests']; ?></span> </p>
       <p> contact info of user : <span><?= $fetch_bookings['number']; ?></span> </p>
-      <a href="see_bookings.php?delete=<?= $fetch_bookings['id']; ?>" class="delete-btn" onclick="return confirm('delete this booking?');">delete</a>
+      <a href="see_bookings.php?booking_delete=<?= $fetch_bookings['id']; ?>" class="delete-btn" onclick="return confirm('delete this booking?');">delete</a>
    </div>
    <?php
       }
