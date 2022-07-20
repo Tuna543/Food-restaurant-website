@@ -23,14 +23,31 @@ if(isset($_POST['submit'])){
    $select_admin->execute([$name]);
    
    if($select_admin->rowCount() > 0){
-      $message[] = 'username already exists!';
+      // $message[] = 'username already exists!';
+      echo "
+                <script>
+                alert('Username already exists');
+                window.location.href='register_admin.php';
+                </script>
+                ";
    }else{
       if($pass != $cpass){
-         $message[] = 'confirm passowrd not matched!';
+         // $message[] = 'confirm passowrd not matched!';
+         echo "
+                <script>
+                alert('Confirm Password Not Matched');
+                window.location.href='register_admin.php';
+                </script>
+                ";
       }else{
          $insert_admin = $conn->prepare("INSERT INTO `admin`(name, password) VALUES(?,?)");
          $insert_admin->execute([$name, $cpass]);
-         $message[] = 'new admin registered!';
+         echo "
+                <script>
+                alert('Admin Registered Successfully');
+                window.location.href='admin_login.php';
+                </script>
+                ";
       }
    }
 
@@ -55,7 +72,6 @@ if(isset($_POST['submit'])){
 </head>
 <body>
 
-<?php include '../components/admin_header.php' ?>
 
 <!-- register admin section starts  -->
 
@@ -67,6 +83,8 @@ if(isset($_POST['submit'])){
       <input type="password" name="pass" maxlength="20" required placeholder="enter your password" class="box" oninput="this.value = this.value.replace(/\s/g, '')">
       <input type="password" name="cpass" maxlength="20" required placeholder="confirm your password" class="box" oninput="this.value = this.value.replace(/\s/g, '')">
       <input type="submit" value="register now" name="submit" class="btn">
+      
+   <p>already have an account? <a href="admin_login.php">Click here to login</a></p>
    </form>
 
 </section>

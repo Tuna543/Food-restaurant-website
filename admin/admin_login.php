@@ -8,7 +8,7 @@ if(isset($_POST['submit'])){
 
    $name = $_POST['name'];
    $name = filter_var($name, FILTER_SANITIZE_STRING);
-   $pass = sha1($_POST['pass']);
+   $pass = $_POST['pass'];
    $pass = filter_var($pass, FILTER_SANITIZE_STRING);
 
    $select_admin = $conn->prepare("SELECT * FROM `admin` WHERE name = ? AND password = ?");
@@ -65,6 +65,7 @@ if(isset($message)){
       <input type="text" name="name" maxlength="20" required placeholder="enter your username" class="box" >
       <input type="password" name="pass" maxlength="20" required placeholder="enter your password" class="box" >
       <input type="submit" value="login now" name="submit" class="btn">
+   <p>Don't have an account? <a href="register_admin.php">Register Now</a></p>
    </form>
 
 </section>
