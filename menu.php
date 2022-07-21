@@ -6,6 +6,9 @@ session_start();
 
 if(isset($_SESSION['user_id'])){
    $user_id = $_SESSION['user_id'];
+   if((time()-$_SESSION['last_login_time'])>3400){
+    header('location:components/user_logout.php');
+ }
 }else{
    $user_id = '';
 };
@@ -201,7 +204,7 @@ include 'components/add_cart.php';
          <div class="name"><?= $fetch_products['name']; ?></div>
          <div class="flex">
             <div class="price"><span>$</span><?= $fetch_products['price']; ?></div>
-            <!-- <input type="number" name="qty" class="qty" min="1" max="99" value="1" maxlength="2""> -->
+            <input type="number" name="qty" class="qty" min="1" max="99" value="1" maxlength="2"">
          </div>
       </form>
       <?php

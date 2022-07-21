@@ -6,12 +6,13 @@ session_start();
 
 if(isset($_SESSION['user_id'])){
    $user_id = $_SESSION['user_id'];
-   if((time()-$_SESSION['last_login_time'])>40){
+   if((time()-$_SESSION['last_login_time'])>3400){
        header('location:components/user_logout.php');
     }
 }
 else{
    $user_id = '';
+   $message[]='You\'re not signed in';
 };
 
 include 'components/add_cart.php';
@@ -281,6 +282,8 @@ include 'components/add_cart.php';
          }
       }
    ?>
+   <br><br><br>
+   <i class="fas fa-times" style="font-size:2.5rem;" onclick="this.parentElement.remove();"></i>
 </div>
 
 

@@ -6,9 +6,9 @@ session_start();
 
 if(isset($_SESSION['user_id'])){
    $user_id = $_SESSION['user_id'];
-   // if((time()-$_SESSION['last_login_time'])>5){
-   //    header('location:components/user_logout.php');
-   // }
+   if((time()-$_SESSION['last_login_time'])>3400){
+      header('location:components/user_logout.php');
+   }
 }else{
    $user_id = '';
    header('location:home.php');
@@ -33,7 +33,7 @@ if(isset($_POST['submit'])){
       $select_email = $conn->prepare("SELECT * FROM `users` WHERE email = ?");
       $select_email->execute([$email]);
       if($select_email->rowCount() > 0){
-         $message[] = 'email already taken!';
+         $message[] = 'You entered the same email address again!';
       }else{
          $update_email = $conn->prepare("UPDATE `users` SET email = ? WHERE id = ?");
          $update_email->execute([$email, $user_id]);
@@ -44,7 +44,7 @@ if(isset($_POST['submit'])){
       $select_number = $conn->prepare("SELECT * FROM `users` WHERE number = ?");
       $select_number->execute([$number]);
       if($select_number->rowCount() > 0){
-         $message[] = 'number already taken!';
+         $message[] = 'You entered the same number again!';
       }else{
          $update_number = $conn->prepare("UPDATE `users` SET number = ? WHERE id = ?");
          $update_number->execute([$number, $user_id]);
@@ -90,6 +90,11 @@ if(isset($_POST['submit'])){
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>update profile</title>
+
+    <!-- bootstrap4 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+     integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">

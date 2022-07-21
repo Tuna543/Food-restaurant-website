@@ -303,7 +303,7 @@ section{
 .swiper-pagination-bullet-active{
    background-color: var(--yellow);
 }
-
+/* category section starts  */
 .category .box-container{
    display: grid;
    grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
@@ -342,7 +342,7 @@ section{
    color:var(--white);
    text-decoration: none;
 }
-
+/* category secton ends  */
 
  /* sliding menu section starts */
  .my_menu .box-container{
@@ -417,6 +417,7 @@ section{
    }
  }
  /* sliding our gallery ends */
+ /* product section starts here  */
 .products .box-container{
    display: grid;
    grid-template-columns: repeat(auto-fit, 33rem);
@@ -589,7 +590,8 @@ section{
 .products .cart-total .btn{
    margin-top: 0;
 }
-
+/* product section ends here  */
+/* about page sliding part  */
 .about .row{
    display: flex;
    align-items: center;
@@ -624,7 +626,9 @@ section{
    font-size: 1.6rem;
    color:var(--light-color);
 }
+/* about page sliding part ends  */
 
+/* review sliding part starts here  */
 .reviews .slide{
    margin-bottom: 4rem;
    border:var(--border);
@@ -665,6 +669,7 @@ section{
    text-transform: capitalize;
    color:var(--white);
 }
+/* review sliding part ends  */
 .checkout form{
    max-width: 50rem;
    margin:0 auto;

@@ -6,9 +6,9 @@ session_start();
 
 if(isset($_SESSION['user_id'])){
    $user_id = $_SESSION['user_id'];
-   // if((time()-$_SESSION['last_login_time'])>5){
-   //    header('location:components/user_logout.php');
-   // }
+   if((time()-$_SESSION['last_login_time'])>3400){
+      header('location:components/user_logout.php');
+   }
 }else{
    $user_id = '';
    header('location:home.php');
@@ -63,6 +63,12 @@ if(isset($_POST['submit'])){
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>checkout</title>
 
+
+    <!-- bootstrap4 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+     integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
@@ -76,13 +82,10 @@ if(isset($_POST['submit'])){
 <?php include 'components/user_header.php'; ?>
 <!-- header section ends -->
 
-<div class="heading" style="background: radial-gradient(circle at 90%, #333, #333 50%, #eee 75%);">
-   <h3>checkout</h3>
-</div>
 
 <section class="checkout">
 
-   <h1 class="title">order summary</h1>
+   <h1 class="title">Your orders</h1>
 
 <form action="" method="post">
 
@@ -129,9 +132,6 @@ if(isset($_POST['submit'])){
       <select name="method" class="box" required>
          <option value="" disabled selected>select payment method --</option>
          <option value="cash on delivery">cash on delivery</option>
-         <option value="credit card">credit card</option>
-         <option value="paytm">paytm</option>
-         <option value="paypal">paypal</option>
       </select>
       <input type="submit" value="place order" class="btn <?php if($fetch_profile['address'] == ''){echo 'disabled';} ?>" style="width:100%; background:var(--red); color:var(--white);" name="submit">
    </div>

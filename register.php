@@ -115,7 +115,7 @@ if(isset($_POST['submit'])){
    <form action="" method="post">
       <h3>register now</h3>
       <input type="text" name="name" required placeholder="enter your name" class="box" maxlength="50">
-      <input type="email" name="email" required placeholder="enter your email" class="box" maxlength="50" oninput="this.value = this.value.replace(/\s/g, '')">
+      <input type="email" name="email" required placeholder="enter your email" class="box" maxlength="50" style="text-transform: lowercase;" oninput="this.value = this.value.replace(/\s/g, '')">
       <input type="number" name="number" required placeholder="enter your number" class="box" min="0" max="9999999999" maxlength="10">
       <input type="password" name="pass" required placeholder="enter your password" class="box" maxlength="50" oninput="this.value = this.value.replace(/\s/g, '')">
       <input type="password" name="cpass" required placeholder="confirm your password" class="box" maxlength="50" oninput="this.value = this.value.replace(/\s/g, '')">

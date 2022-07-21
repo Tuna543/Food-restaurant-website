@@ -6,9 +6,9 @@ session_start();
 
 if(isset($_SESSION['user_id'])){
    $user_id = $_SESSION['user_id'];
-   // if((time()-$_SESSION['last_login_time'])>5){
-   //    header('location:components/user_logout.php');
-   // }
+   if((time()-$_SESSION['last_login_time'])>3400){
+      header('location:components/user_logout.php');
+   }
 }else{
    $user_id = '';
 };
@@ -292,6 +292,8 @@ include 'components/add_cart.php';
 
 <!-- custom js file link  -->
 <script src="js/script.js"></script>
+
+
 
 <script>
 

@@ -6,6 +6,9 @@ session_start();
 
 if(isset($_SESSION['user_id'])){
    $user_id = $_SESSION['user_id'];
+   if((time()-$_SESSION['last_login_time'])>3400){
+    header('location:components/user_logout.php');
+ }
 }else{
    $user_id = '';
    
@@ -14,7 +17,10 @@ if(isset($_SESSION['user_id'])){
    // $message[] = 'sorry you do not have an account!';
 };
 
-
+if((time()-$_SESSION['last_login_time'])>60){
+  header('location:components/user_logout.php');
+}
+else{
 if(isset($_POST['submit'])){
   $user_name = $_POST['user_name'];
   $user_name = filter_var($user_name, FILTER_SANITIZE_STRING);
@@ -42,6 +48,7 @@ if(isset($_POST['submit'])){
         $message[] = 'booking successful!';
     }
 
+}
 }
 
 ?>

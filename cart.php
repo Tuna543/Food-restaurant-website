@@ -6,6 +6,9 @@ session_start();
 
 if(isset($_SESSION['user_id'])){
    $user_id = $_SESSION['user_id'];
+   if((time()-$_SESSION['last_login_time'])>3400){
+      header('location:components/user_logout.php');
+   }
    
 }else{
    $user_id = '';
@@ -162,12 +165,12 @@ $grand_total = 0;
 
    <div class="cart-total">
       <p>cart total : <span>$<?= $grand_total; ?></span></p>
-      <a href="checkout.php" class="btn <?= ($grand_total > 1)?'':'disabled'; ?>">proceed to checkout</a>
+      <a href="checkout.php" class="btn <?= ($grand_total > 1)?'':'disabled'; ?>">proceed to order</a>
    </div>
 
    <div class="more-btn">
       <form action="" method="post">
-         <button type="submit" class="delete-btn <?= ($grand_total > 1)?'':'disabled'; ?>" name="delete_all" onclick="return confirm('delete all from cart?');">delete all</button>
+         <button type="submit" class="delete-btn <?= ($grand_total > 10)?'':'disabled'; ?>" name="delete_all" onclick="return confirm('delete all from cart?');">delete all</button>
       </form>
       <a href="menu.php" class="btn">continue shopping</a>
    </div>

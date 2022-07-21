@@ -5,9 +5,10 @@ if(isset($_POST['add_to_cart'])){
    if($user_id == ''){
       header('location:login.php');
    }else{
-      // if((time()-$_SESSION['last_login_time'])>5){
-      //    header('location:components/user_logout.php');
-      // }
+      if((time()-$_SESSION['last_login_time'])>3400){
+         header('location:components/user_logout.php');
+      }
+      else{
       $pid = $_POST['pid'];
       $pid = filter_var($pid, FILTER_SANITIZE_STRING);
       $name = $_POST['name'];
@@ -30,7 +31,7 @@ if(isset($_POST['add_to_cart'])){
          $message[] = 'added to cart!';
          
       }
-
+   }
    }
 
 }

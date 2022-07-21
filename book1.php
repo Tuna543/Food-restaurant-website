@@ -6,6 +6,9 @@ session_start();
 
 if(isset($_SESSION['user_id'])){
    $user_id = $_SESSION['user_id'];
+   if((time()-$_SESSION['last_login_time'])>3400){
+      header('location:components/user_logout.php');
+ }
 }else{
    $user_id = '';
 };
@@ -51,6 +54,14 @@ include 'components/add_cart.php';
  <!-- bootstrap4 -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+
+     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"><\/script>')</script><script src="/docs/4.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
  
 <!-- custom css file link  -->
 <link rel="stylesheet" href="css/style.css">
@@ -89,6 +100,10 @@ include 'components/add_cart.php';
     
     <!-- Custom styles for this template -->
     <link href="carousel.css" rel="stylesheet">
+
+    <script>
+        $("#h2").css("color","red");
+    </script>
   </head>
   <body>
     
@@ -111,7 +126,7 @@ include 'components/add_cart.php';
         <div class="carousel-caption text-left">
           <h1>Best Place to Organize </h1>
           <p style="font-size:1.5rem;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam corrupti magnam eos veritatis non beatae.</p>
-          <p><a class="btn btn-lg btn-primary" href="book2.php">Book Now</a></p>
+          <p><a class="btn btn-lg btn-primary" href="book2.php" style="border: none;">Book Now</a></p>
         </div>
       </div>
     </div>
@@ -161,7 +176,7 @@ include 'components/add_cart.php';
   <hr class="featurette-divider">
 
   <div class="row featurette">
-    <div class="col-md-7" style="margin-top:8rem;">
+    <div class="col-md-7" style="margin-top:5rem;">
       <h2 class="featurette-heading" >Best environment </h2>
       <p class="lead" style="font-size:1.5rem;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, exercitationem, ex modi sunt ea ab incidunt dicta et ratione pariatur esse minus eligendi ullam dolor placeat unde explicabo? Repudiandae, saepe. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque similique asperiores culpa, maiores tenetur, illum minima quia neque suscipit quisquam iste facere veniam molestiae, unde laboriosam deleniti. Ut, accusantium maxime.</p>
     </div>
@@ -218,6 +233,13 @@ include 'components/add_cart.php';
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
+    <script>
+        $(".featurette-heading").css("font-size","3rem");
+        $(".btn-primary").css("background-color","#5C5CFF");
+        $(".btn-primary").css("border","none");
+        $(".btn-primary").css("color","#fff");  
+        $(".lead").css("font-size","1.8rem");
+    </script>
     
 <!-- custom js file link  -->
 <script src="js/script.js"></script>
